@@ -1,4 +1,4 @@
-Subspace-conjugate gradient method for linear matrix equations
+# Subspace-conjugate gradient method for linear matrix equations
 
 Version: 1
 
