@@ -14,8 +14,8 @@ function [W, Y, D] = prec_fadi_mod(A, B, U, V, C, p, q, D, E)
 %   - U, V      : RHS factors
 %   - p, q      : ADI poles
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%   Original code given in 
-% 
+% The original code can be found at  
+% https://github.com/IvanBioli/riemannian-spdmatrixeq
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
