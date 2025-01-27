@@ -219,7 +219,7 @@ while (Xdiff_rel>tol) && (it<=itmax)
         Zkr = Prec2L'\(Prec2L\Rkr);
     
     elseif iprec(1)==2  % 2-term precond
-        [Zkl,Zkr,Zkc] = fadi_mod(PREC{1,1},PREC{1,2}, Rkl, Rkr, -Rkc,...
+        [Zkl,Zkr,Zkc] = prec_fadi_mod(PREC{1,1},PREC{1,2}, Rkl, Rkr, -Rkc,...
             PREC{2,1}, PREC{2,2},PREC{1,3},PREC{1,4});
 
         [nz1,nz2]=size(Zkl);
