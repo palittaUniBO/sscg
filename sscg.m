@@ -28,6 +28,8 @@ function [Xkl, Xkc, Xkr, it] = sscg(OP, C, tol, itmax, toltrank, maxrank, maxran
 %              else no preconditioner used
 %              iprec(2:3) indexes of the PREC matrices to select
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%           FOR NO PRECONDITIONING SET PREC=[] AND iprec=3
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % type_res     if equal to 1, perform deterministic update of the residual
 %              if equal to 2, perform randomized update of the residual
 %
@@ -111,12 +113,14 @@ if  nargin>=8 && not(isempty(PREC))
     [Pl,r1] = qr(Zkl,0);        % left P
     [Pr,r2] = qr(Zkr,0);
     [TP0l, LambdaP0c, TP0r] = svd(full(r1*Zkc*r2'),0);
+    
 else
     % No preconditioner
     % Directions
     [Pl,r1] = qr(Rkl,0);        % left P
     [Pr,r2] = qr(Rkr,0);
     [TP0l, LambdaP0c, TP0r] = svd(r1*r2',0);
+    ip1=1;ip2=1;
 end
 
 Pl = Pl*TP0l;
@@ -159,8 +163,7 @@ while (Xdiff_rel>tol) && (it<=itmax)
             [uk,~] = pcg_inner(OP_projected,rhs,0*rhs,maxit_cg,...
                 tolAB,Prec1,Prec2,iprec(1));
         else
-            [uk,~] = pcg_inner(OP_projected,rhs,0*rhs,maxit_cg,...
-                tolAB,OP_projected{1,ip1},OP_projected{2,ip2},iprec(1));
+            [uk,~] = pcg_inner(OP_projected,rhs,0*rhs,maxit_cg,tolAB,OP_projected{1,ip1},OP_projected{2,ip2},iprec(1));
         end
     end % end inner solver
 
@@ -255,9 +258,10 @@ while (Xdiff_rel>tol) && (it<=itmax)
             [vk,~] = pcg_inner(OP_projected,rhs,rhs*0,maxit_cg,...
                 tolAB,Prec1,Prec2,iprec(1));
         else
-            [vk,~] = pcg_inner(OP_projected,rhs,rhs*0,maxit_cg,...
+            [vk,~] = pcg_inner(OP_projected,rhs,0*rhs,maxit_cg,...
                 tolAB,OP_projected{1,ip1},OP_projected{2,ip2},iprec(1));
         end
+
     end % end inner solver
 
     Vk = reshape(vk, [size(Pl,2), size(Pr,2)]);     % beta_k
