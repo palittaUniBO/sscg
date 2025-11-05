@@ -119,7 +119,7 @@ else
     % Directions
     [Pl,r1] = qr(Rkl,0);        % left P
     [Pr,r2] = qr(Rkr,0);
-    [TP0l, LambdaP0c, TP0r] = svd(r1*r2',0);
+    [TP0l, LambdaP0c, TP0r] = svd(r1*Rkc*r2',0);
     ip1=1;ip2=1;
 end
 
