@@ -8,9 +8,7 @@ The software is licensed under GPLv3 or later. See LICENSE for details.
 
 This software package includes the subspace-conjugate gradient method for linear matrix equations developed and analysed in the manuscript
 
-A subspace-conjugate gradient method for linear matrix equations. 
-Davide Palitta, Martina Iannacito, Valeria Simoncini 
-SIAM Journal on Matrix Analysis and Applications, Vol. 46 (4), pp. 2197-2225 (2025)
+A subspace-conjugate gradient method for linear matrix equations, Davide Palitta, Martina Iannacito, Valeria Simoncini, SIAM Journal on Matrix Analysis and Applications, Vol. 46 (4), pp. 2197-2225 (2025)
 
 This software is intended to reproduce some the numerical experiments illustrated in the manuscript mentioned above. The software has been developed by using Matlab, version 2022b. 
 
