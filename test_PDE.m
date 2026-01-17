@@ -1,8 +1,11 @@
 addpath('support_fun/')
 rng(0);
 
-% example 9.1 in "A SUBSPACE-CONJUGATE GRADIENT METHOD FOR LINEAR MATRIX
-% EQUATIONS" by DAVIDE PALITTA, MARTINA IANNACITO, AND VALERIA SIMONCINI
+% example 9.1 in 
+% A subspace-conjugate gradient method for linear matrix equations
+% D. Palitta, M. Iannacito, V. Simoncini
+% SIAM Journal on Matrix Analysis and Applications, Vol. 46 (4), pp. 2197-2225 (2025).
+
 fprintf('PDE example\n')
 
 n=8000;
