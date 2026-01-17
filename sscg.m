@@ -38,12 +38,13 @@ function [Xkl, Xkc, Xkr, it] = sscg(OP, C, tol, itmax, toltrank, maxrank, maxran
 % it                index of the last iteration performed
 %
 % -------------------------------------------------------------------------
-% REFERENCE: A subspace-conjugate gradient method for linear matrix
-% equations, D. Palitta, M. Iannacito, V. Simonici. Preprint at
-% https://arxiv.org/abs/2501.02938 (2025)
+% REFERENCE: 
+% A subspace-conjugate gradient method for linear matrix equations
+% D. Palitta, M. Iannacito, V. Simoncini
+% SIAM Journal on Matrix Analysis and Applications, Vol. 46 (4), pp. 2197-2225 (2025).
 % -------------------------------------------------------------------------
 %
-% Copyright (c): D. Palitta, M. Iannacito, V. Simonici, th January 2025.
+% Copyright (c): D. Palitta, M. Iannacito, V. Simoncini, January 2025.
 %
 % ------------------------------------------------------------------------
 %  iprec(1)=1  1-term  precond   iprec(2:3) which Ai Bi coeff
